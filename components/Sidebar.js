@@ -116,7 +116,7 @@ export default function Sidebar() {
 
         {/* Create Quotation */}
         <button className="bg-[#008CFF] text-white py-2 rounded mb-4 shadow hover:bg-[#0183ec]">
-          <Link href="/AdminPages/Quotation">+ Create Quotation</Link>
+          <Link href="/invoice/invoice">+ Create Quotation</Link>
         </button>
 
         {/* Dashboard */}

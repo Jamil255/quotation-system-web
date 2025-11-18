@@ -19,7 +19,25 @@ export default function QuotationTable() {
         sortBy: 'createdAt',
         sortOrder: 'desc',
       })
-      setInvoices(response.data.data.invoices)
+      console.log('invoiceAPI.getAll response:', response)
+
+      // Support multiple possible response shapes from the API
+      let fetched = []
+      if (Array.isArray(response.data)) {
+        fetched = response.data
+      } else if (Array.isArray(response.data?.data?.invoices)) {
+        fetched = response.data.data.invoices
+      } else if (Array.isArray(response.data?.invoices)) {
+        fetched = response.data.invoices
+      } else if (Array.isArray(response.data?.data)) {
+        fetched = response.data.data
+      } else {
+        console.warn(
+          'Unexpected invoices response shape, defaulting to empty array'
+        )
+      }
+
+      setInvoices(fetched)
     } catch (error) {
       toast.error('Failed to fetch invoices')
       console.error(error)

@@ -16,6 +16,7 @@ export default function Home() {
     rejectedQuotations: 0,
     totalQuotations: 0,
   })
+  const [search, setSearch] = useState('')
 
   const fetchStats = async () => {
     try {
@@ -129,12 +130,14 @@ export default function Home() {
                   type="text"
                   placeholder="Search..."
                   className="flex-1 outline-none"
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
                 />
               </div>
             </div>
           </div>
 
-          <ClientTable />
+          <ClientTable searchQuery={search} />
         </main>
       </div>
     </ProtectedRoute>

@@ -116,7 +116,7 @@ export default function UserSidebar() {
 
         {/* Create Quotation */}
         <button className="bg-[#008CFF] text-white py-2 rounded mb-4 shadow hover:bg-[#0183ec]">
-          <Link href="/UserPages/Quotation">+ Create Quotation</Link>
+          <Link href="/invoice/invoice">+ Create Quotation</Link>
         </button>
 
         {/* Nav Links */}
@@ -135,10 +135,10 @@ export default function UserSidebar() {
           </Link> */}
 
           <Link
-            href="/UserPages/History"
+            href="/UserPages/Invoice"
             className={`block py-2 px-3 rounded 
               ${
-                isActive('/UserPages/History')
+                isActive('/UserPages/Invoice')
                   ? 'bg-[#1C2730] text-white shadow'
                   : 'text-black'
               }
