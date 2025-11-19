@@ -234,19 +234,11 @@ export function MainContent({
       <div className="flex-1 flex flex-col w-full max-w-3xl mx-auto overflow-y-auto">
         {/* Breadcrumb */}
         <div className="p-4 md:p-6 border-b bg-white sticky top-0 z-10 shadow-sm">
-          <div className="flex items-center gap-2 text-sm mb-4">
-            <span className="text-gray-500 hover:text-gray-700 cursor-pointer transition-colors">
-              Invoices
-            </span>
-            <ChevronRight size={14} className="text-gray-400" />
-            <span className="font-semibold text-gray-900">New Invoice</span>
-          </div>
+          
           <h1 className="text-2xl md:text-3xl font-bold text-gray-900">
             Create New Invoice
           </h1>
-          <p className="text-gray-500 text-sm mt-1">
-            Fill in the details below to generate your invoice
-          </p>
+
         </div>
 
         {/* Progress Steps */}

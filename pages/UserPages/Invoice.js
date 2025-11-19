@@ -1,12 +1,12 @@
 'use client'
-import UserSidebar from '../../components/UserSidebar'
+import { useAuth } from '@/context/AuthContext'
+import { invoiceAPI } from '@/lib/api'
+import { Eye } from 'lucide-react'
+import { useEffect, useState } from 'react'
+import toast from 'react-hot-toast'
 import DashboardNavbar from '../../components/DashboardNavbar'
 import ProtectedRoute from '../../components/ProtectedRoute'
-import { useAuth } from '@/context/AuthContext'
-import { useEffect, useState } from 'react'
-import { invoiceAPI } from '@/lib/api'
-import toast from 'react-hot-toast'
-import { SquarePen, Trash2, Eye } from 'lucide-react'
+import UserSidebar from '../../components/UserSidebar'
 
 export default function Invoice() {
   const { user } = useAuth()

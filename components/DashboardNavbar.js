@@ -1,7 +1,9 @@
+/* eslint-disable @next/next/no-img-element */
 import React from 'react'
 import Link from 'next/link'
-import { Bell, Search } from 'lucide-react'
+import { Search } from 'lucide-react'
 import { useAuth } from '@/context/AuthContext'
+import NotificationBell from './NotificationBell'
 
 const DashboardNavbar = () => {
   const { user } = useAuth()
@@ -9,7 +11,7 @@ const DashboardNavbar = () => {
     <div>
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center mx-1 my-3 border-b border-[#F8F8F8] pb-3 gap-3 md:gap-0">
         {/* Left heading */}
-        <h1 className="text-xl font-medium pt-2 md:pt-4">Admin</h1>
+        <h1 className="text-xl font-medium pt-2 md:pt-4">{user?.role}</h1>
 
         {/* Right section */}
         <div className="flex flex-wrap md:flex-nowrap gap-2 md:gap-3 items-center">
@@ -23,12 +25,8 @@ const DashboardNavbar = () => {
             />
           </div>
 
-          {/* Notification Button */}
-          <button className="p-2 h-9 w-9 text-center bg-[#FBFAFA] border border-[#00000014] rounded-lg text-black hover:bg-[#d6d4d4]">
-            <Link href="/AdminPages/Notification">
-              <Bell size={17} />
-            </Link>
-          </button>
+          {/* Notification Bell */}
+          <NotificationBell />
 
           {/* Profile */}
           <Link href="/AdminPages/ProfilePage">
