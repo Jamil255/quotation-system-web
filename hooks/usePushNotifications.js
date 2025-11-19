@@ -12,7 +12,6 @@ export function usePushNotifications() {
       return
     }
 
-    console.log('VAPID Key:', process.env.NEXT_PUBLIC_FIREBASE_VAPID_KEY)
 
     // Request permission and get token
     const requestPermission = async () => {
@@ -22,7 +21,7 @@ export function usePushNotifications() {
         setPermission(permissionResult)
 
         if (permissionResult === 'granted') {
-          console.log('Getting token with VAPID key...')
+
           const vapidKey = process.env.NEXT_PUBLIC_FIREBASE_VAPID_KEY
           if (!vapidKey) {
             console.error('VAPID key not found in environment variables')
@@ -34,8 +33,7 @@ export function usePushNotifications() {
           })
           if (currentToken) {
             setToken(currentToken)
-            console.log('Registration token available:', currentToken)
-            // Here you can send the token to your server
+         
           } else {
             console.log('No registration token available.')
           }

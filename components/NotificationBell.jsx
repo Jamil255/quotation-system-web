@@ -35,7 +35,6 @@ export default function NotificationBell() {
   }
 
   return (
-    // 'relative' zaroori hai taake dropdown iske neeche aaye
     <div className="relative inline-block text-left" ref={dropdownRef}>
       {/* --- BUTTON START --- */}
       <button
@@ -105,10 +104,6 @@ export default function NotificationBell() {
                       {notif.title}
                     </p>
                     <span className="text-[10px] text-gray-400 whitespace-nowrap ml-2">
-                      {/* Agar date-fns install nahi hai to niche wali line uncomment karein */}
-                      {/* {new Date(notif.created_at).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})} */}
-
-                      {/* Agar date-fns install hai: */}
                       {notif.created_at
                         ? formatDistanceToNow(new Date(notif.created_at), {
                             addSuffix: true,

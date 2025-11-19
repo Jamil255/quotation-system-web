@@ -17,7 +17,7 @@ import { usePushNotifications } from '../hooks/usePushNotifications'
 const NotificationContext = createContext()
 
 export function NotificationProvider({ children }) {
-  const { user } = useAuth() // Get the logged-in user from your existing AuthContext
+  const { user } = useAuth() 
   const [notifications, setNotifications] = useState([])
   const [unreadCount, setUnreadCount] = useState(0)
 
@@ -32,8 +32,7 @@ export function NotificationProvider({ children }) {
     }
 
     const userId = user.uid || user.id
-    console.log('NotificationContext - User:', user)
-    console.log('NotificationContext - Using userId:', userId)
+
 
     // 2. Query Firestore (Real-time)
     const q = query(
@@ -43,14 +42,12 @@ export function NotificationProvider({ children }) {
       limit(20)
     )
 
-    console.log('NotificationContext - Query created for userId:', userId)
 
     // 3. Listen for changes
     const unsubscribe = onSnapshot(q, (snapshot) => {
       const data = snapshot.docs.map((doc) => ({
         id: doc.id,
         ...doc.data(),
-        // Convert Firestore Timestamp to JS Date safely
         created_at: doc.data().created_at?.toDate() || new Date(),
       }))
 

@@ -15,7 +15,6 @@ const app =
   getApps().length === 0 ? initializeApp(firebaseConfig) : getApps()[0]
 const db = getFirestore(app)
 
-// Initialize Firebase Cloud Messaging
 let messaging = null
 if (typeof window !== 'undefined') {
   try {
