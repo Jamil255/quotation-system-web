@@ -6,12 +6,12 @@ importScripts(
 )
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyDjMm1yoRHxM7EPFbXpgydDmzeG1CKHcsE',
-  authDomain: 'real-77584.firebaseapp.com',
-  projectId: 'real-77584',
-  storageBucket: 'real-77584.firebasestorage.app',
-  messagingSenderId: '639012073970',
-  appId: '1:639012073970:web:afb5de4e30f65efb4e3b6b',
+  apiKey: NEXT_PUBLIC_FIREBASE_API_KEY,
+  authDomain: NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+  projectId: NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+  storageBucket: NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+  appId: NEXT_PUBLIC_FIREBASE_APP_ID,
 }
 
 firebase.initializeApp(firebaseConfig)
@@ -25,7 +25,7 @@ messaging.onBackgroundMessage((payload) => {
   const notificationTitle = payload.notification.title
   const notificationOptions = {
     body: payload.notification.body,
-    icon: '/icon-192x192.png', // Add your icon
+    icon: './Vector.png',
   }
 
   self.registration.showNotification(notificationTitle, notificationOptions)
